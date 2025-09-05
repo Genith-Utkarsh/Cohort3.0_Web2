@@ -72,7 +72,8 @@ app.post("/add", (req, res) => {
 // do all kidneys healthy
 
 app.put("/magic", (req, res) => {
-  if (total_John_UnHealthy_Kidneys) {
+  let unhealthycnt = users[0].kidneys.filter(ele => ele.healthy !== true).length
+  if (unhealthycnt) {
     users[0].kidneys.map((ele) => {
       if (ele.healthy === false) {
         ele.healthy = true;
@@ -88,7 +89,8 @@ app.put("/magic", (req, res) => {
 // something to delete unhealthy kidneys from total kideneys
 
 app.delete("/", function (req, res) {
-  if (total_John_UnHealthy_Kidneys) {
+  let unhealthycnt = users[0].kidneys.filter(ele => ele.healthy !== true).length
+  if (unhealthycnt) {
     users[0].kidneys = users[0].kidneys.filter(
       (element) => element.healthy !== false
     );
