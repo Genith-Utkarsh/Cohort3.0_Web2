@@ -23,7 +23,7 @@ const users = [
   },
 ];
 
-app.get("/", function (_req, res) {
+app.get("/", function (req, res) {
   let all_John_Kidneys = users[0].kidneys;
   let total_John_Kidneys = all_John_Kidneys.length;
 
