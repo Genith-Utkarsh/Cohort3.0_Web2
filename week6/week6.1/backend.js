@@ -29,9 +29,10 @@ app.post("/signup", (req, res)=>{
         password
     })
 
-    req.status(200).json({
+    res.status(200).json({
         message : "Yo! Signup successfull"
     })
+    console.log(users)
 })
 
 app.post("/signin", (req, res)=>{
@@ -53,6 +54,8 @@ app.post("/signin", (req, res)=>{
     res.status(403).json({
         message : "User not found consider checking inputs"
     })
+
+    console.log(users)
 })
 
 
