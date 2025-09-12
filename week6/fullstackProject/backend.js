@@ -9,8 +9,11 @@ const JWT_SECRET = "measme";
 // middlewares
 app.use(cors({}));
 app.use(express.json());
+
+
+
 function authMiddleWare(req, res, next) {
-  const token = req.headers.token;
+  const token = req.headers.token
   const decoded = jwt.verify(token, JWT_SECRET);
 
   if (!decoded) {
@@ -22,6 +25,8 @@ function authMiddleWare(req, res, next) {
     next();
   }
 }
+
+
 
 //databse
 const users = [];
@@ -69,6 +74,8 @@ app.post("/signin", (req, res) => {
   if (userFound) {
     const payload = { username: username };
     const token = jwt.sign(payload, JWT_SECRET);
+
+    
 
     return res.status(200).json({
       message: "Sign in successfull",
