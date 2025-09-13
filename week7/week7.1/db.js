@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const objectId = mongoose.Schema.objectId
 
 
 mongoose.connect("mongodb+srv://buvautkarsh849:QFBS5zJawmBh2NlB@cluster0.g427upx.mongodb.net/todoApp")
@@ -19,7 +18,7 @@ const userSchema = new mongoose.Schema({
 })
 
 const todoSchema = new  mongoose.Schema({
-    userId : objectId,
+    userId : {type : mongoose.Schema.Types.ObjectId, ref : "users"},
     title : String,
     description : String,
     isDone : Boolean,
@@ -34,7 +33,7 @@ const Todo = mongoose.model("Todos", todoSchema)
 
 // export model
 
-module.exports({
+module.exports = {
     User,
     Todo
-})
+}
